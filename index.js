@@ -9,19 +9,19 @@ const API_URL = "https://rickandmortyapi.com/api/character";
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+let content;
+
 app.get("/", async (req,res) => {
-    res.render("index.ejs"), {
-        content: "waiting for data"
-    }
-    });
-    // const result = await axios.get(API_URL);
+    var n = Math.floor(Math.random() * 826)
+     const result = await axios.get(API_URL + `/${n}`);
+     
     
-    // //console.log(result.data.results[0]);
-    // res.render("index.ejs", { 
-    //     content : result.data.results[Math.floor(Math.random() * result.length)],
-    //     location : result.data.results[Math.floor(Math.random() * result.length)].location.name
-    // });
-//});
+     //console.log(result.data.results[0]);
+     res.render("index.ejs", { 
+         content : result.data,
+         location : result.data.location.name
+     });
+});
 
 
 //  app.post("/", async (req, res) => {
