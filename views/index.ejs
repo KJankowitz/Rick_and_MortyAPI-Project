@@ -4,55 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rick and Morty Characters</title>
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-      <!-- <% if (locals.content) { %>
-      <section id="cards" class="cards">
-      
-        <article class="card-item">
-          <h2 class="card-name">
-            Name: <%= content.name %>
-          </h2>
-          <div class="card-info">
-            <span class="card-id">
-              ID: <%= content.id %>
-            </span>
-            <span class="card-status">
-              Status: <%= content.status %>
-            </span>
-            <span class="card-location">
-             Last known location:  <%= location %>
-            </span>
-          </div>
-          <div>
-            <img src=<%= content.image %> height="200">
-          </div>
-        </article>
-        <%} else { %> -->
-
-          <h1> Welcome to the Rick & Morty character finder!</h1>
-    <p>Enter details below to find your character</p>
-    <form action="/" id="form" class="form" method="POST">
-        <select name="status" class="form-select">
-          <option value="" data-display="Select"></option>
-          <option value="alive">Alive</option>
+    <h1> Welcome to the Random Rick & Morty character finder!</h1>
+    <div class="container">
+    <p>Find a random character matching your description:</p>
+      <form action="/results" id="form" method="post">
+        <label for="charName">Name of Character:</label>
+        <input type="text" id="charName" name="name">
+  
+        <label for="charStatus">Status:</label>
+        <select id="charStatus" name="status">
+          <option value=""></option>
           <option value="dead">Dead</option>
+          <option value="alive">Alive</option>
           <option value="unknown">Unknown</option>
         </select>
-        <input type="number" name="id" class="form-select" value="" max="826" min="1">
-          Character ID
-        </input>
-        <button type="submit" class="form-submit">Go</button>
-      </form>
-      <% } %>
-
-          <div id="tag-error" class="tag-error">
-         
-          
-          </div>
-         
   
-      </section>
-    </div>
+        <label for="charGender">Gender:</label>
+        <select id="charGender" name="gender">
+          <option value=""></option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="genderless">Genderless</option>
+          <option value="unknown">Unknown</option>
+        </select>
+  
+        <button type="submit" class="form-submit">Let's get schwifty!</button>
+      </form>
+    
+      <div class="response-area">
+        <section id="cards" class="cards">
+          <article class="card-item">
+            
+            <h2 class="card-name">
+              Name: <%= content.name %>
+            </h2>
+            <div class="card-info">
+              <span class="card-id">
+                ID: <%= content.id %>
+              </span>
+              <span class="card-status">
+                Status: <%= content.status %>
+              </span>
+              <span class="card-location">
+               Last known location:  <%= location %>
+              </span>
+            </div>
+            <div>
+              <img src=<%= content.image %> height="200">
+            </div>
+  
+          </article>
+        </section>
+      </div>
 </body>
 </html>
