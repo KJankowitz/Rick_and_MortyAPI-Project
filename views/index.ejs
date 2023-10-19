@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rick and Morty Characters</title>
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <h1> Welcome to the Rick & Morty character finder!</h1>
-    <p>Enter details below to find your character</p>
-      <form action="/results" id="myForm" method="post">
+    <h1> Welcome to the Random Rick & Morty character finder!</h1>
+    <div class="container">
+    <p>Find a random character matching your description:</p>
+      <form action="/results" id="form" method="post">
         <label for="charName">Name of Character:</label>
         <input type="text" id="charName" name="name">
   
@@ -29,9 +31,9 @@
           <option value="unknown">Unknown</option>
         </select>
   
-        <button type="submit" class="form-submit">Go</button>
+        <button type="submit" class="form-submit">Let's get schwifty!</button>
       </form>
-    <div class="container">
+    
       <div class="response-area">
         <section id="cards" class="cards">
           <article class="card-item">
